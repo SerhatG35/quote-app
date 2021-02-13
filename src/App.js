@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 import UpperContainer from './UpperContainer'
 import LowerContainer from './LowerContainer'
+import Head from './Head.js'
 
 
 let selectedData // for sending data to Select
@@ -43,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h2 style={bgStyle}>Get Quote</h2>
+        <Head bgStyle={bgStyle} />
         <UpperContainer bgStyle={bgStyle} quote={quote} author={author} />
         <LowerContainer bgStyle={bgStyle} getData={fetchData} selectedData={selectedData} setQuote={setQuote} setAuthor={setAuthor} />
       </div>

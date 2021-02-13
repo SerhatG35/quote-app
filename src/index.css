@@ -15,27 +15,21 @@ code {
     monospace;
 }
 
-@keyframes buttonAnimation {
-  25% {box-shadow: 0 0 0.1em 0.1em black;}
-}
-
 /* CONTAINER */
 .container {
-  font-size: 1.25em;
-  font-family: 'San Francisco';
+  font-size: 1.5em;
+  font-family: 'IBM Plex Serif', serif;
   display: flex;
   position: absolute;
-  width: 40%;
-  height: 15em;
+  width: 50%;
+  height: 19em;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  background-color: #DEB887;
+  background-color: blanchedalmond;
   color: black;
-  border-radius: 2.5em;
-  border: 0.75em double #2F4F4F;
-  box-shadow:0.5em 0.5em 1.5em black;
+  border-radius: 1.3em;
   /* flex */
   justify-content: space-between;
   align-items: center;
@@ -43,84 +37,91 @@ code {
 .container h2 {
   font-size: 1.75em;
   margin: 0;
-  margin-top: 0.25em;
+  margin-top: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
 }
+/* HEAD */
+.head{
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* UPPER CONTAINER */
 .upperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
+  /* height: 15em; */
+  height: 50%;
   margin: 0 2.5em;
   margin-bottom: 1.75em;
 }
 .upperContainer p{
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 0.2em;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
 }
 .upperContainer footer{
   text-align: end;
-  font-weight: 500;
+  font-weight: bold;
+  letter-spacing: 0.03em;
 }
 /* LOWER CONTAINER */
 .lowerContainer {
-  width: 90%;
-  margin-bottom: 2em;
+  width: 95%;
+  margin-bottom: 0.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .lowerContainer .getQuote{
-  color: white;
-  border: 2px solid;
-  border-radius: 20px;
+  color: blanchedalmond;
+  border: 0.05em solid;
+  border-radius: 0.4em;
   font-size: 1em;
   margin-left: 1em;
-  font-weight: 600;
-  animation: buttonAnimation 4s infinite;
+  font-weight: 400;
 }
 /* dropdown menu */
 #quote-select{
   font-weight: 500;
   font-size: 0.75em;
   outline: none;
-  color: white;
-  border: 2px solid white;
-  max-width: 10em;
+  color: blanchedalmond;
+  border: 1px solid grey;
+  max-width: 8em;
 }
 
 .lowerContainer .getQuote:hover{
-  color: black;
+  border: 0.05em solid grey;
 }
 .lowerContainer .getQuote:focus{
   outline: none;
 }
 
-
-
 /* Media */
-@media screen and (max-width:1410px){
-  .container{
-    width: 55%;
-  }
-}
+
 @media screen and (max-width:1024px){
-  .container{
-    width: 70%;
-  }
-}
-@media screen and (max-width:768px){
   .container{
     width: 80%;
   }
 }
+@media screen and (max-width:768px){
+  .container{
+    font-size: 1.1em;;
+  }
+}
 @media screen and (max-width:500px){
   .container{
-    font-size: 1.1em;
-  }
-  .upperContainer{
-    height: 8em;
-  }
-  .upperContainer p {
-    margin-top: 0.25em;
+    font-size: 1em;
   }
   .lowerContainer{
     margin-bottom: 0.5em;
@@ -134,7 +135,8 @@ code {
 }
 @media screen and (max-width:350px){
   .container{
-    font-size: 1em;
+    height: 21em;
+    font-size: 0.8em;
   }
 }
 @media screen and (max-width:300px){
@@ -144,4 +146,21 @@ code {
   #quote-select{
     max-width: 6em;
   }
+}
+@media screen and (max-width:230px){
+  .container{
+    max-height: 22em;
+    font-size: 0.58em;
+  }
+  .container h2{
+    letter-spacing: 0.1em;
+  }
+}
+
+/* flip for icon */
+.flipped{
+  transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
 }

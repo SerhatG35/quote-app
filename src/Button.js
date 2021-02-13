@@ -6,7 +6,7 @@ let selectedTemp = 0, selectedRandomNum = 0 // random num and temp for when "Ran
 let rnd = 0 // for selected item
 
 const Button = ({ getData, selectedData, setQuote, setAuthor }) => {
-    const colors = ['#301934', '#191970', '#5D3FD3', '#4169E1', '#CD7F32', '#6F4E37', '#722F37', '#818589', '#36454F', '#454B1B', '#702963', '#A0522D', '#00A36C', '#6495ED', '#536DFE', '#1B5E20', '#996666']
+    const colors = ['#6F4242', '#FF6F61', '#6B5B95', '#92A8D1', '#775ce0' , '#34568B' , '#cd7f32' , '#009e69']
 
     const randomNum = () => {
         num = Math.floor(Math.random() * (colors.length))
