@@ -1,25 +1,27 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
-import UpperContainer from './components/UpperContainer';
-import LowerContainer from './components/LowerContainer';
-import Head from './components/Head.js';
+import UpperContainer from "./components/UpperContainer";
+import LowerContainer from "./components/LowerContainer";
+import Head from "./components/Head.js";
+import Footer from "./components/Footer";
 
-import { BG_COLOR, randomNum } from './utils/constants';
+import { randomNum } from "./utils/constants";
 
 function App() {
-  const [quote, setQuote] = useState('');
-  const [author, setAuthor] = useState('');
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
   const [selectedData, setSelectedData] = useState([]);
+  const [rnd, setRandom] = useState("0");
   const inputEl = useRef(null);
 
   const fetchData = async () => {
-    const res = await fetch('https://type.fit/api/quotes');
+    const res = await fetch("https://type.fit/api/quotes");
     const data = await res.json();
     setSelectedData(data);
 
-    const rndNum = randomNum(data);
-    setQuote(data[rndNum].text);
-    setAuthor(data[rndNum].author);
+    setRandom(randomNum(data));
+    setQuote(data[rnd]?.text);
+    setAuthor(data[rnd]?.author);
   };
 
   useEffect(() => {
@@ -30,9 +32,8 @@ function App() {
     <div className="App">
       <div className="container">
         <Head />
-        <UpperContainer bgStyle={BG_COLOR} quote={quote} author={author} />
+        <UpperContainer quote={quote} author={author} />
         <LowerContainer
-          bgStyle={BG_COLOR}
           getData={fetchData}
           selectedData={selectedData}
           setQuote={setQuote}
@@ -40,6 +41,7 @@ function App() {
           inputRef={inputEl}
         />
       </div>
+      <Footer />
     </div>
   );
 }

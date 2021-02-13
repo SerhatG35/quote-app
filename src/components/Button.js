@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { colorList, randomNum, RANDOM } from '../utils/constants';
+import { colorList, randomNum, RANDOM } from "../utils/constants";
 
 const Button = ({
   getData,
@@ -9,7 +9,7 @@ const Button = ({
   setAuthor,
   refObject: { current } = {},
 }) => {
-  const [rnd, setRandom] = useState('0');
+  const [rnd, setRandom] = useState("0");
 
   const changeBg = () => {
     document.body.style.backgroundColor = colorList[randomNum(colorList)];
@@ -24,7 +24,7 @@ const Button = ({
     return result;
   };
 
-  const handleOnClick = () => {
+  const handleClick = () => {
     changeBg();
     if (getSelected() === RANDOM) getData();
     else configureSelectedData();
@@ -44,7 +44,7 @@ const Button = ({
     <button
       style={{ backgroundColor: document.body.style.backgroundColor }}
       className="getQuote"
-      onClick={() => handleOnClick()}
+      onClick={() => handleClick()}
     >
       Get Quote!
     </button>
