@@ -85,20 +85,20 @@ code {
 .lowerContainer .getQuote {
   color: blanchedalmond;
   border: 0.05em solid;
-  border-radius: 0.4em;
+  border-radius: 0.3em;
   font-size: 1em;
   margin-left: 1em;
-  font-weight: 400;
+  font-weight: 500;
 }
 /* dropdown menu */
 #quote-select {
   font-weight: 500;
-  font-size: 0.75em;
-  padding: 0.15em;
-  border-radius: 0.4em;
+  font-size: 1em;
+  padding: 0.5px;
+  border-radius: 0.3em;
   outline: none;
   color: blanchedalmond;
-  border: 1px solid grey;
+  border: 0.05em solid;
   max-width: 8em;
 }
 
@@ -128,6 +128,9 @@ code {
   .container {
     font-size: 1.1em;
   }
+  .githubIcon {
+    top: 90%;
+  }
 }
 @media screen and (max-width: 500px) {
   .container {
@@ -145,12 +148,12 @@ code {
     height: 21em;
     font-size: 0.8em;
   }
-}
-@media screen and (max-width: 300px) {
-  .lowerContainer .getQuote {
-    font-size: 0.75em;
+  #quote-select {
+    padding: 0 0.5px;
+    max-width: 5.3em;
   }
 }
+
 @media screen and (max-width: 230px) {
   .container {
     max-height: 22em;
