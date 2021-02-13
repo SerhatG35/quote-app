@@ -1,52 +1,44 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react';
 
-import UpperContainer from './UpperContainer'
-import LowerContainer from './LowerContainer'
-import Head from './Head.js'
+import UpperContainer from './components/UpperContainer';
+import LowerContainer from './components/LowerContainer';
+import Head from './components/Head.js';
 
-
-let selectedData // for sending data to Select
-
-let rndNum = 0 // variables for random number
-let temp = 0, num = 0
+import { BG_COLOR, randomNum } from './utils/constants';
 
 function App() {
-  const [quote, setQuote] = useState('')
-  const [author, setAuthor] = useState('')
+  const [quote, setQuote] = useState('');
+  const [author, setAuthor] = useState('');
+  const [selectedData, setSelectedData] = useState([]);
+  const inputEl = useRef(null);
 
-  const randomNum = (array) => {
-    num = Math.floor(Math.random() * (array.length))
-    if (num !== temp) {
-      temp = num
-      return num
-    }
-    else return randomNum(array)
-  }
-
-  const fetchData = async () => { //fetching data and setting the contents to its place
-    const res = await fetch("https://type.fit/api/quotes")
+  const fetchData = async () => {
+    const res = await fetch('https://type.fit/api/quotes');
     const data = await res.json();
-    selectedData = data; // for sending data to select.js
+    setSelectedData(data);
 
-    rndNum = randomNum(data)
-    setQuote(data[rndNum].text)
-    setAuthor(data[rndNum].author)
-  }
+    const rndNum = randomNum(data);
+    setQuote(data[rndNum].text);
+    setAuthor(data[rndNum].author);
+  };
 
-  useEffect(() => { // getting random quote on first load
-    fetchData()
-  }, [])
-
-  const bgStyle = {
-    color: document.body.style.backgroundColor
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="App">
       <div className="container">
-        <Head bgStyle={bgStyle} />
-        <UpperContainer bgStyle={bgStyle} quote={quote} author={author} />
-        <LowerContainer bgStyle={bgStyle} getData={fetchData} selectedData={selectedData} setQuote={setQuote} setAuthor={setAuthor} />
+        <Head />
+        <UpperContainer bgStyle={BG_COLOR} quote={quote} author={author} />
+        <LowerContainer
+          bgStyle={BG_COLOR}
+          getData={fetchData}
+          selectedData={selectedData}
+          setQuote={setQuote}
+          setAuthor={setAuthor}
+          inputRef={inputEl}
+        />
       </div>
     </div>
   );
